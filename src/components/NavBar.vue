@@ -15,16 +15,8 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@font-face {
-    font-family: "Inria Serif Bold";
-    src: url("../assets/fonts/InriaSerif/InriaSerif-Bold.woff") format("woff");
-}
-@font-face {
-    font-family: "Inria Serif";
-    src: url("../assets/fonts/InriaSerif/InriaSerif-Regular.woff") format("woff");
-}
+@import "@/config.scss";
 
  .navbar {
    position: absolute;
@@ -33,7 +25,7 @@ export default {
    margin-top: 50px;
    margin-left: 15px;
   a {
-     color: black;
+     color: $black;
      text-decoration: none;
      margin-left: 50px;
      color: #000000;

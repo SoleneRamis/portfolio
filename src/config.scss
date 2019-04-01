@@ -1,0 +1,28 @@
+/* --- FONTS --- */
+
+@font-face {
+    font-family: "Inria Sans Bold";
+    src: url("../assets/fonts/InriaSans/InriaSans-Bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Inria Serif Bold";
+    src: url("../assets/fonts/InriaSerif/InriaSerif-Bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Inria Serif";
+    src: url("../assets/fonts/InriaSerif/InriaSerif-Regular.woff") format("woff");
+}
+
+/* --- COLORS --- */
+
+$black: #000000;
+$gray: #7e7e7e;
+$gray-light: #c0c6d6;
+$blue-light: #BFEAE8;
+$green-light: #AEC1B8;
+$orange: #F77F2E;
+$pink: #BB4EA9;
+$pink-light: #F7BABF;
+$blue: #667DF7;
