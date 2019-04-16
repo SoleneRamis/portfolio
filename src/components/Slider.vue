@@ -31,9 +31,12 @@
     <!-- RIGHT PART -->
     <div class="containerRight" ref="containerRight">
       <div class="backgroundColor" :style="backgroundColorStyle"></div>
-      <!-- SPHERE FOR PROJECT AR XP -->
-      <sphere></sphere>
-      <!-- PROJECT PICTURE -->
+      <!-- PREVIOUS PROJECT -->
+      <div class="previousProject" :class="{'hoverPreviousProject': isHover}">
+        <!-- SPHERE FOR PROJECT AR XP -->
+        <sphere></sphere>
+        <!-- PROJECT PICTURE -->
+      </div>
     </div>
   </div>
 </template>
@@ -167,14 +170,14 @@ export default {
       // ---- PROJECT DESCRIPTION ----
       .descContainer {
         transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
-        transition-duration: 0.3s;
+        transition-duration: 0.35s;
         transition-delay: 0.1s;
       }
       // ---- EVENT HOVER ----
       .descContainer.hoverDesc {
         transform: translateX(2vw);
         transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
-        transition-duration: 0.3s;
+        transition-duration: 0.35s;
         transition-delay: 0.1s;
       }
       .date {
@@ -257,6 +260,19 @@ export default {
       top: 100px;
       position: absolute;
       object-fit: contain;
+    }
+    // ---- PREVIOUS PROJECT ----
+    .previousProject {
+      transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
+      transition-duration: 0.46s;
+      transition-delay: 0.2s;
+    }
+    // ---- EVENT HOVER ----
+    .previousProject.hoverPreviousProject {
+      transform: translateX(1vw);
+      transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
+      transition-duration: 0.46s;
+      transition-delay: 0.2s;
     }
   }
 }
