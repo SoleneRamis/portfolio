@@ -22,12 +22,12 @@ export default {
    position: absolute;
    display: flex;
    justify-content: flex-start;
-   margin-top: 50px;
-   margin-left: 15px;
+   margin-top: 5vh;
+   margin-left: 1vw;
   a {
      color: $black;
      text-decoration: none;
-     margin-left: 50px;
+     margin-left: 3vw;
      color: #000000;
      font-family: "Inria Serif";
      font-size: 14px;

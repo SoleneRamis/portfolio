@@ -19,8 +19,8 @@ export default {
   },
   methods: {
     init: function() {
-        let winW = 768;
-        let winH = 1080;
+        let winW = window.innerWidth/2.4 // 768;
+        let winH = window.innerHeight // 1080;
         let container = this.$refs.canvas;
 
         this.scene = new THREE.Scene();

@@ -4,32 +4,27 @@ import appData from '../../static/data/data.json'
 const createStore = () => {
     return new Vuex.Store({
         state: {
-            appLoaded: false,
             appData: appData,
-            current: 1
+            current: 0,
+            projectsLength: appData.length,
         },
         mutations: {
-            SET_APP_LOADED(state, bool) {
-                state.appLoaded = bool
-            },
-            // increment state for current slide
-            increment(state) {
-                state.current++
+            next(state) {
+                state.currentProjectId++
 
-                if (state.current - 1 == Object.keys(appData.slider).length) {
-                    state.current = 1
+                if (state.currentProjectId == state.projectsLength) {
+                    state.currentProjectId = 0
                 }
             },
-            decrement(state) {
-                state.current--
+            previous(state) {
 
-                if (state.current == 0) {
-                    state.current = Object.keys(appData.slider).length
+                if (state.currentProjectId == 0) {
+
+                    state.currentProjectId = state.projectsLength - 1
+
+                } else {
+                    state.currentProjectId--
                 }
-            },
-            // reset state when current slide is max
-            reset(state) {
-                state.current = 1
             }
         }
     })
