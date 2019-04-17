@@ -34,15 +34,16 @@
       <!-- PREVIOUS PROJECT -->
       <div class="previousProject" :class="{'hoverPreviousProject': isHover}">
         <!-- SPHERE FOR PROJECT AR XP -->
-        <sphere></sphere>
+        <!-- <sphere></sphere> -->
         <!-- PROJECT PICTURE -->
+        <img class="image" :src="imageProject"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import Sphere from "./Sphere";
 import * as THREE from "three";
 
@@ -57,17 +58,19 @@ export default {
     Sphere
   },
   mounted() {
+    // ---- EVENT FOR HOVER ANIMATION ----
     this.$refs.titleContainer.addEventListener('mouseenter', () => {
       this.isHover = true
     });
     this.$refs.titleContainer.addEventListener('mouseleave', () => {
       this.isHover = false
     });
+    
   },
   computed: {
     ...mapState({
       appData: "appData",
-      current: "current"
+      current: "current",
     }),
     TitleProject() {
       return this.appData[this.$store.state.current].title;
@@ -99,6 +102,8 @@ export default {
   width: 100%;
   height: 100%;
   display: inline-flex;
+  overflow: hidden;
+  overflow: hidden;
   // ---- LEFT PART ----
   .containerLeft {
     width: 60vw;
@@ -197,7 +202,7 @@ export default {
         line-height: 24px;
         text-align: justify;
         position: initial;
-        width: 24vw;
+        width: 28vw;
       }
       .techno {
         display: flex;
@@ -254,8 +259,7 @@ export default {
     }
     .image {
       width: 740px;
-      height: 880px;
-      z-index: 1;
+      // z-index: 1;
       right: 100px;
       top: 100px;
       position: absolute;

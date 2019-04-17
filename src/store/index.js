@@ -10,22 +10,26 @@ const createStore = () => {
         },
         mutations: {
             next(state) {
-                state.currentProjectId++
-
-                if (state.currentProjectId == state.projectsLength) {
-                    state.currentProjectId = 0
+                state.current++
+                if (state.current == state.projectsLength) {
+                    state.current = 0
                 }
             },
             previous(state) {
-
-                if (state.currentProjectId == 0) {
-
-                    state.currentProjectId = state.projectsLength - 1
-
+                if (state.current == 0) {
+                    state.current = state.projectsLength - 1
                 } else {
-                    state.currentProjectId--
+                    state.current--
                 }
             }
+        },
+        getters: {
+            setCurrentProject: state => {
+                return state.appData[Object.keys(state.appData)[state.current]]
+            },
+            valueMax: state => {
+                return state.projectsLength // * 100
+            },
         }
     })
 }

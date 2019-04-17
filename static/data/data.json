@@ -4,8 +4,8 @@
         "color": "#c0c6d6",
         "img": "../static/imgs/ar/arExperience.png",
         "title": "AR Experience",
-        "date": "Personnal Project 2018 / 2019",
-        "desc": "This is a personal projet on augmented reality. The experience is developped with a-frame, web framework based on three.js.",
+        "date": "Projet Personnel 2018 / 2019",
+        "desc": "Expérience sur réalité augmentée pour tester le framework web A-frame basé sur Three.js.",
         "techno": {
             "0": "JavaScript",
             "1": "Three.js",
@@ -17,8 +17,8 @@
         "color": "#BFEAE8",
         "img": "../static/imgs/louvre/croquis.png",
         "title": "Louvre Experience",
-        "date": "Project Gobelins 2018 / 2019",
-        "desc": "This is a school project in partnership with the Louvre Museum. As a team, we designed an immersive interactive experience narrating the story of an ancien artefact.",
+        "date": "Projet Gobelins 2018 / 2019",
+        "desc": "Site web interactif autour du casque de parade de Charles VI, oeuvre appartenant à l’exposition de la Petite Galerie du Louvre: « L’archéologie en bulles ».",
         "techno": {
             "0": "JavaScript"
         }
@@ -28,8 +28,8 @@
         "color": "#BB4EA9",
         "img": "../static/imgs/3DSound/threejsSound.png",
         "title": "3D Sound Experience: Worakls – Bleu",
-        "date": "Project Gobelins 2018 / 2019",
-        "desc": "This is a school project whose goal was to create an interactive music experience with Three.js.",
+        "date": "Projet Gobelins 2018 / 2019",
+        "desc": "Réaliser une expérience interactive réagissant à la musique avec Three.js.",
         "techno": {
             "0": "JavaScript",
             "1": "Three.js",
@@ -41,8 +41,8 @@
         "color": "#AEC1B8",
         "img": "../static/imgs/soudlines/sound.png",
         "title": "SoundLines",
-        "date": "Project Gobelins 2018 / 2019",
-        "desc": "This is a school project whose goal was to create an interactive experience that reacts to music with 2D canvas.",
+        "date": "Projet Gobelins 2018 / 2019",
+        "desc": "Réaliser une expérience interactive réagissant à la musique avec canvas 2D.",
         "techno": {
             "0": "JavaScript",
             "1": "Canvas 2D",
@@ -54,9 +54,8 @@
         "color": "#F77F2E",
         "img": "../static/imgs/dataviz/affiche.png",
         "title": "Dataviz: BDDIVRE",
-        "date": "Project Gobelins 2018 / 2019",
-        "count": "0",
-        "desc": "This is a dataviz school project. Based on promotional data, including alcohol consumption, this site provides an entertaining visualization of numerical information. The user scrolls, the illustrations give the illusion of being at a counter, re,ady to consume. Visually speaking, the project is realized in simple illustrations, in line, in two colors.",
+        "date": "Projet Gobelins 2018 / 2019",
+        "desc": "À partir de données sur la promotion, notamment sur sa consommation d’alcool, ce site permet de visualiser de façon divertissante des informations chiffrées.",
         "techno": {
             "0": "JavaScript",
             "1": "CSS"
@@ -67,7 +66,7 @@
         "color": "#F7BABF",
         "img": "../static/imgs/chatroom/log.gif",
         "title": "Emotional Chatroom",
-        "date": "Project Gobelins 2018 / 2019",
+        "date": "Projet Gobelins 2018 / 2019",
         "desc": "This is a school project Chatroom Chatroom Chatroom Chatroom Chatroom Chatroom Chatroom Chatroom Chatroom",
         "techno": {
             "0": "Vue.js",
@@ -80,7 +79,7 @@
         "color": "#667DF7",
         "img": "../static/imgs/laboscope/home.bmp",
         "title": "Laboscope",
-        "date": "Project Gobelins 2018 / 2019",
+        "date": "Projet Gobelins 2018 / 2019",
         "desc": "During my second year of DUT Informatique, IUT Sénart - Fontainebleau, I did an end of study internship at EDF laboratory I2R. (Hub Innovation Group which is located in Saclay). The laboratory has many incoming projects, the problem is to find a way to visualize the number of projects, the workload of contributors spread over different projects, to find out who has free time in the week to work on new projects. I developed Laboscope, an internal tool allowing the visualization and the storage of data to answer the needs of putting in production of a tool of archiving, planning and project management.",
         "techno": {
             "0": "Vue.js",
