@@ -4,7 +4,7 @@
         "color": "#c0c6d6",
         "img": "../static/imgs/ar/arExperience.png",
         "title": "AR Experience",
-        "date": "Projet Personnel 2018 / 2019",
+        "date": "Projet personnel - 2018.2019",
         "desc": "Expérience sur réalité augmentée pour tester le framework web A-frame basé sur Three.js.",
         "techno": {
             "0": "JavaScript",
@@ -17,7 +17,7 @@
         "color": "#BFEAE8",
         "img": "../static/imgs/louvre/croquis.png",
         "title": "Louvre Experience",
-        "date": "Projet Gobelins 2018 / 2019",
+        "date": "Projet Gobelins - 2018.2019",
         "desc": "Site web interactif autour du casque de parade de Charles VI, oeuvre appartenant à l’exposition de la Petite Galerie du Louvre: « L’archéologie en bulles ».",
         "techno": {
             "0": "JavaScript"
@@ -41,7 +41,7 @@
         "color": "#AEC1B8",
         "img": "../static/imgs/soudlines/sound.png",
         "title": "SoundLines",
-        "date": "Projet Gobelins 2018 / 2019",
+        "date": "Projet Gobelins - 2018.2019",
         "desc": "Réaliser une expérience interactive réagissant à la musique avec canvas 2D.",
         "techno": {
             "0": "JavaScript",
@@ -54,7 +54,7 @@
         "color": "#F77F2E",
         "img": "../static/imgs/dataviz/affiche.png",
         "title": "Dataviz: BDDIVRE",
-        "date": "Projet Gobelins 2018 / 2019",
+        "date": "Projet Gobelins - 2018.2019",
         "desc": "À partir de données sur la promotion, notamment sur sa consommation d’alcool, ce site permet de visualiser de façon divertissante des informations chiffrées.",
         "techno": {
             "0": "JavaScript",
@@ -66,8 +66,8 @@
         "color": "#F7BABF",
         "img": "../static/imgs/chatroom/log.gif",
         "title": "Emotional Chatroom",
-        "date": "Projet Gobelins 2018 / 2019",
-        "desc": "This is a school project Chatroom Chatroom Chatroom Chatroom Chatroom Chatroom Chatroom Chatroom Chatroom",
+        "date": "Projet Gobelins - 2018.2019",
+        "desc": "Création d'un chat en ligne au sein de Gobelins où chaque membre de la classe peut discuter avec un client différent",
         "techno": {
             "0": "Vue.js",
             "1": "Socket.io",
@@ -79,8 +79,8 @@
         "color": "#667DF7",
         "img": "../static/imgs/laboscope/home.bmp",
         "title": "Laboscope",
-        "date": "Projet Gobelins 2018 / 2019",
-        "desc": "During my second year of DUT Informatique, IUT Sénart - Fontainebleau, I did an end of study internship at EDF laboratory I2R. (Hub Innovation Group which is located in Saclay). The laboratory has many incoming projects, the problem is to find a way to visualize the number of projects, the workload of contributors spread over different projects, to find out who has free time in the week to work on new projects. I developed Laboscope, an internal tool allowing the visualization and the storage of data to answer the needs of putting in production of a tool of archiving, planning and project management.",
+        "date": "Projet stage EDF au laboratoire I2R - 2016.2017",
+        "desc": "Création d'un outil permettant la visualisation et le stockage de données pour répondre aux besoins de mise en production d’un outil d’archivage, de planification et de gestion de projets.",
         "techno": {
             "0": "Vue.js",
             "1": "D3.js",
