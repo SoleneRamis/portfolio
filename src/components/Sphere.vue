@@ -1,11 +1,12 @@
 <template>
-  <div class="sphere">
-    <div ref="canvas" id="canvas"></div>
+  <div  class="sphere">
+    <div :class="{'sphereVisible': this.appData[this.$store.state.current] == 0}" ref="canvas" id="canvas"></div>
   </div>
 </template>
 
 <script>
 import * as THREE from 'three';
+import { mapState } from "vuex";
 
 export default {
   name: "sphere",
@@ -16,6 +17,11 @@ export default {
       renderer: null,
       sphere: null
     };
+  },
+  computed: {
+    ...mapState({
+      appData: "appData",
+    }),
   },
   methods: {
     init: function() {
@@ -61,5 +67,9 @@ export default {
 <style lang="scss" scoped>
 #canvas {
     position: absolute;
+    visibility: hidden;
+  #canvas >  .sphereVisible {
+      visibility: visible;
+    }
 }
 </style>

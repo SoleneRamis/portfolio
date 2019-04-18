@@ -34,7 +34,7 @@
       <!-- PREVIOUS PROJECT -->
       <div class="previousProject" :class="{'hoverPreviousProject': isHover}">
         <!-- SPHERE FOR PROJECT AR XP -->
-        <!-- <sphere></sphere> -->
+        <sphere :class="{'sphereVisible': this.appData[this.$store.state.current] == 0}"></sphere>
         <!-- PROJECT PICTURE -->
         <img class="image" :src="imageProject"/>
       </div>
@@ -73,6 +73,7 @@ export default {
       current: "current",
     }),
     TitleProject() {
+      console.log(this.appData[this.$store.state.current] == 0 ? 'ok' : 'non')
       return this.appData[this.$store.state.current].title;
     },
     DateProject() {
@@ -256,6 +257,9 @@ export default {
       width: 40vw;
       position: relative;
       float: right;
+    }
+    .sphere > .sphereVisible {
+      display: contents;
     }
     .image {
       width: 740px;

@@ -42,11 +42,11 @@ export default {
       if (!this.isDraggable) {
         this.isDraggable = true;
         if (deltaScroll < 0) {
-          setTimeout( () => { this.isDraggable = false; }, 1000);
+          setTimeout( () => { this.isDraggable = false; }, 800);
           this.nextSlide();
         }
         if (deltaScroll > 0) {
-          setTimeout( () => { this.isDraggable = false; }, 1000);
+          setTimeout( () => { this.isDraggable = false; }, 800);
           this.previousSlide();
         }
       }

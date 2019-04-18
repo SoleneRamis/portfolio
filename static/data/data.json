@@ -2,7 +2,6 @@
     {
         "count": "01",
         "color": "#c0c6d6",
-        "img": "../static/imgs/ar/arExperience.png",
         "title": "AR Experience",
         "date": "Projet personnel - 2018.2019",
         "desc": "Expérience sur réalité augmentée pour tester le framework web A-frame basé sur Three.js.",
