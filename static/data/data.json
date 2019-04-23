@@ -1,7 +1,7 @@
 [
     {
         "count": "01",
-        "color": "#c0c6d6",
+        "color": "#6c3f93",
         "title": "AR Experience",
         "date": "Projet personnel - 2018.2019",
         "desc": "Expérience sur réalité augmentée pour tester le framework web A-frame basé sur Three.js.",
@@ -38,7 +38,7 @@
     {
         "count": "04",
         "color": "#AEC1B8",
-        "img": "../static/imgs/soudlines/intro.png",
+        "img": "../static/imgs/soudlines/intro.gif",
         "title": "SoundLines",
         "date": "Projet Gobelins - 2018.2019",
         "desc": "Réaliser une expérience interactive réagissant à la musique avec canvas 2D.",
@@ -76,7 +76,7 @@
     {
         "count": "07",
         "color": "#667DF7",
-        "img": "../static/imgs/laboscope/home.bmp",
+        "img": "../static/imgs/laboscope/intro.png",
         "title": "Laboscope",
         "date": "Projet stage EDF au laboratoire I2R - 2016.2017",
         "desc": "Création d'un outil permettant la visualisation et le stockage de données pour répondre aux besoins de mise en production d’un outil d’archivage, de planification et de gestion de projets.",

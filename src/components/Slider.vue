@@ -136,11 +136,12 @@ export default {
         &.-title {
           color: $black;
           font-family: "Inria Sans Bold";
-          font-size: 80px;
+          font-size: 70px;
           font-weight: bold;
           letter-spacing: -2.5px;
           line-height: 96px;
-          margin-left: -6vw;
+          margin-left: -6px;
+          text-align: left;
           transition-duration: 0.3s;
           transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
           transition-duration: 0.15s;
@@ -202,7 +203,7 @@ export default {
         font-weight: 500;
         line-height: 23px;
         font-style: italic;
-        margin-left: -11vw;
+        text-align: left;
       }
       .desc {
         color: $black;
@@ -212,12 +213,13 @@ export default {
         line-height: 24px;
         text-align: justify;
         position: initial;
+        text-align: left;
         width: 28vw;
       }
       .techno {
         display: flex;
-        justify-content: space-around;
-        margin-left: -1vw;
+        justify-content: flex-start;
+        text-align: left;
         p {
           margin-right: 10px;
           color: $gray;
@@ -236,13 +238,14 @@ export default {
       font-family: "Inria Serif";
       .number {
         position: absolute;
-        bottom: 7vh;
+        bottom: 20vh;
         left: 4vw;
         display: flex;
         color: $black;
         font-size: 20px;
         &.-last {
-          left: 13.5vw;
+          left: 4vw;
+          bottom: 7vh;
           &:before {
             content: '0'
           }
@@ -252,8 +255,9 @@ export default {
         border-bottom: 1px solid black;
         width: 7%;
         position: absolute;
-        bottom: 7.9vh;
-        left: 6vw;
+        bottom: 14.9vh;
+        left: 2.7vw;
+        transform: rotate(90deg);
       }
     }
   }
@@ -270,14 +274,16 @@ export default {
       position: relative;
       float: right;
     }
-    #canvas > .sphereVisible {
-      display: contents;
+    .sphere {
+      right: 45.5vw;
+      top: 5vh;
+      position: absolute;
     }
     .image {
       width: 536px;
       height: 638px;
       right: 11vw;
-      top: 6vh;
+      top: 5vh;
       position: absolute;
       object-fit: contain;
     }
@@ -289,7 +295,7 @@ export default {
     }
     // ---- EVENT HOVER ----
     .previousProject.hoverPreviousProject {
-      transform: translateX(3vw);
+      transform: scale(1.03) translateX(2vw);
       transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
       transition-duration: 0.46s;
       transition-delay: 0.2s;
