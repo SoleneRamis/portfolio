@@ -1,9 +1,11 @@
 <template>
   <div class="home">
-    <div>
-      <nav-bar></nav-bar>
-      <slider></slider>
-    </div>
+    <transition name="fade" mode="out-in" appear>
+      <div>
+        <nav-bar></nav-bar>
+        <slider></slider>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -57,7 +59,6 @@ export default {
       if (this.valueTranslate == this.valueMax) {
         this.valueTranslate = 0;
       }
-      // this.sliderAnimation();
     },
     previousSlide() {
       this.previous();
@@ -65,21 +66,7 @@ export default {
       if (this.valueTranslate == 0) {
         this.valueTranslate = this.valueMax;
       }
-      // this.sliderAnimation();
     },
-    // sliderAnimation() {
-    //   var Timeline = new Timeline();
-    //   Timeline.to(this.skew, 0.5, { skewY: 8, ease: Power3.easeOut });
-    //   Timeline.to(this.skew, 0.5, { skewY: 0, ease: Power3.easeOut });
-    //   TweenLite.to(this.listImg, 1, {
-    //     y: "-" + this.valueTranslate + "%",
-    //     ease: Expo.easeInOut
-    //   });
-    //   TweenLite.to(this.listText, 1, {
-    //     y: "-" + this.valueTranslate + "vh",
-    //     ease: Expo.easeInOut,
-    //   });
-    // }
   }
 }
 </script>

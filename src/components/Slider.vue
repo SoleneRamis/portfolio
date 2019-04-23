@@ -34,9 +34,9 @@
       <!-- PREVIOUS PROJECT -->
       <div class="previousProject" :class="{'hoverPreviousProject': isHover}">
         <!-- SPHERE FOR PROJECT AR XP -->
-        <sphere :class="{'sphereVisible': this.appData[this.$store.state.current] == 0}"></sphere>
+        <sphere v-if="this.appData[this.$store.state.current].title == 'AR Experience'"></sphere>
         <!-- PROJECT PICTURE -->
-        <img class="image" :src="imageProject"/>
+        <img v-if="this.appData[this.$store.state.current].title != 'AR Experience'" class="image" :src="imageProject"/>
       </div>
     </div>
   </div>
@@ -52,6 +52,7 @@ export default {
   data() {
     return {
       isHover: false,
+      isVisible: false,
     };
   },
   components: {
@@ -65,7 +66,7 @@ export default {
     this.$refs.titleContainer.addEventListener('mouseleave', () => {
       this.isHover = false
     });
-    
+
   },
   computed: {
     ...mapState({
@@ -73,7 +74,6 @@ export default {
       current: "current",
     }),
     TitleProject() {
-      console.log(this.appData[this.$store.state.current] == 0 ? 'ok' : 'non')
       return this.appData[this.$store.state.current].title;
     },
     DateProject() {
@@ -92,6 +92,11 @@ export default {
     },
     imageProject() {
       return this.appData[this.$store.state.current].img;
+    },
+    sphereVisible() {
+      if (this.appData[this.$store.state.current] == 0) {
+        return this.isVisible = true;
+      }
     }
   }
 };
@@ -102,13 +107,17 @@ export default {
 .slider {
   width: 100%;
   height: 100%;
-  display: inline-flex;
+  display: flex;
+  justify-content: flex-start;
   overflow: hidden;
   overflow: hidden;
   // ---- LEFT PART ----
   .containerLeft {
-    width: 60vw;
-    height: 100vh;
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -250,22 +259,25 @@ export default {
   }
   // ---- RIGHT PART ----
   .containerRight {
-    width: 40vw;
-    height: 100vh;
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    margin: 0px 0px 0px 60%;
+    padding: 0px;
     .backgroundColor {
       height: 100%;
       width: 40vw;
       position: relative;
       float: right;
     }
-    .sphere > .sphereVisible {
+    #canvas > .sphereVisible {
       display: contents;
     }
     .image {
-      width: 740px;
-      // z-index: 1;
-      right: 100px;
-      top: 100px;
+      width: 536px;
+      height: 638px;
+      right: 11vw;
+      top: 6vh;
       position: absolute;
       object-fit: contain;
     }
@@ -277,7 +289,7 @@ export default {
     }
     // ---- EVENT HOVER ----
     .previousProject.hoverPreviousProject {
-      transform: translateX(1vw);
+      transform: translateX(3vw);
       transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
       transition-duration: 0.46s;
       transition-delay: 0.2s;

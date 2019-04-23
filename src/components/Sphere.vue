@@ -67,9 +67,9 @@ export default {
 <style lang="scss" scoped>
 #canvas {
     position: absolute;
-    visibility: hidden;
-  #canvas >  .sphereVisible {
-      visibility: visible;
-    }
+     // visibility: hidden;
+  // #canvas >  .sphereVisible {
+  //     visibility: visible;
+  //   }
 }
 </style>

@@ -14,7 +14,7 @@
     {
         "count": "02",
         "color": "#BFEAE8",
-        "img": "../static/imgs/louvre/croquis.png",
+        "img": "../static/imgs/louvre/intro.png",
         "title": "Louvre Experience",
         "date": "Projet Gobelins - 2018.2019",
         "desc": "Site web interactif autour du casque de parade de Charles VI, oeuvre appartenant à l’exposition de la Petite Galerie du Louvre: « L’archéologie en bulles ».",
@@ -25,8 +25,8 @@
     {
         "count": "03",
         "color": "#BB4EA9",
-        "img": "../static/imgs/3DSound/threejsSound.png",
-        "title": "3D Sound Experience: Worakls – Bleu",
+        "img": "../static/imgs/3DSound/intro.png",
+        "title": "Worakls – Bleu",
         "date": "Projet Gobelins 2018 / 2019",
         "desc": "Réaliser une expérience interactive réagissant à la musique avec Three.js.",
         "techno": {
@@ -38,7 +38,7 @@
     {
         "count": "04",
         "color": "#AEC1B8",
-        "img": "../static/imgs/soudlines/sound.png",
+        "img": "../static/imgs/soudlines/intro.png",
         "title": "SoundLines",
         "date": "Projet Gobelins - 2018.2019",
         "desc": "Réaliser une expérience interactive réagissant à la musique avec canvas 2D.",
@@ -51,8 +51,8 @@
     {
         "count": "05",
         "color": "#F77F2E",
-        "img": "../static/imgs/dataviz/affiche.png",
-        "title": "Dataviz: BDDIVRE",
+        "img": "../static/imgs/dataviz/intro.png",
+        "title": "Dataviz - BDDIVRE",
         "date": "Projet Gobelins - 2018.2019",
         "desc": "À partir de données sur la promotion, notamment sur sa consommation d’alcool, ce site permet de visualiser de façon divertissante des informations chiffrées.",
         "techno": {
@@ -63,7 +63,7 @@
     {
         "count": "06",
         "color": "#F7BABF",
-        "img": "../static/imgs/chatroom/log.gif",
+        "img": "../static/imgs/chatroom/intro.png",
         "title": "Emotional Chatroom",
         "date": "Projet Gobelins - 2018.2019",
         "desc": "Création d'un chat en ligne au sein de Gobelins où chaque membre de la classe peut discuter avec un client différent",
