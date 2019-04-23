@@ -5,16 +5,16 @@
       <!-- PROJECT TITLE & LINE -->
       <div class="projectContainer">
         <div class="titleContainer" ref="titleContainer">
-          <h1 class="titleContainer -title">{{TitleProject}}</h1>
-          <div class="titleContainer -line">
-            <span class="titleContainer -line-arrow">></span>
+          <h1 class="titleContainer -title" :class="{'isHidden': isClicked}" :style="colorStyle">{{TitleProject}}</h1>
+          <div class="titleContainer -line" :class="{'isHidden': isClicked}">
+            <span class="titleContainer -line-arrow" :class="{'isHidden': isClicked}">></span>
           </div>
         </div>
         <!-- PROJECT DESCRIPTION -->
-        <div class="descContainer" :class="{'hoverDesc': isHover}">
-          <p class="date">{{DateProject}}</p>
-          <p class="desc">{{DescProject}}</p>
-          <div class="techno">
+        <div class="descContainer" :class="{'hoverDesc': isHover, 'isHidden': isClicked}">
+          <p class="date" :class="{'isHidden': isClicked}">{{DateProject}}</p>
+          <p class="desc" :class="{'isHidden': isClicked}">{{DescProject}}</p>
+          <div class="techno" :class="{'isHidden': isClicked}">
             <p v-for="(TechnoProject, index) in this.appData[this.$store.state.current].techno" :key="index">
               <span class="glif">✎</span> {{TechnoProject}}
             </p>
@@ -22,7 +22,7 @@
         </div>
       </div>
       <!-- PAGINATION -->
-      <div class="pagination">
+      <div class="pagination" :class="{'isHidden': isClicked}">
         <span class="number">{{this.appData[this.$store.state.current].count}}</span>
         <div class="underline"/>
         <span class="number -last">{{this.appData.length}}</span>
@@ -30,7 +30,7 @@
     </div>
     <!-- RIGHT PART -->
     <div class="containerRight" ref="containerRight">
-      <div class="backgroundColor" :style="backgroundColorStyle"></div>
+      <div class="backgroundColor" :class="{'isHidden': isClicked}" :style="backgroundColorStyle"></div>
       <!-- PREVIOUS PROJECT -->
       <div class="previousProject" :class="{'hoverPreviousProject': isHover}">
         <!-- SPHERE FOR PROJECT AR XP -->
@@ -43,9 +43,9 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
-import Sphere from "./Sphere";
-import * as THREE from "three";
+import { mapState, mapMutations } from "vuex"
+import Sphere from "./Sphere"
+import * as THREE from "three"
 
 export default {
   name: "slider",
@@ -53,53 +53,67 @@ export default {
     return {
       isHover: false,
       isVisible: false,
-    };
+      isClicked: false,
+    }
   },
   components: {
     Sphere
   },
   mounted() {
     // ---- EVENT FOR HOVER ANIMATION ----
-    this.$refs.titleContainer.addEventListener('mouseenter', () => {
+    this.$refs.titleContainer.addEventListener("mouseenter", () => {
       this.isHover = true
-    });
-    this.$refs.titleContainer.addEventListener('mouseleave', () => {
+    })
+    this.$refs.titleContainer.addEventListener("mouseleave", () => {
       this.isHover = false
-    });
-
+    })
+    // ---- EVENT FOR CLICK ANIMATION ----
+    this.$refs.titleContainer.addEventListener("click", () => {
+      this.isClicked = true
+    })
+    // this.$refs.titleContainer.addEventListener('mouseleave', () => {
+    //   this.isHover = false
+    // });
   },
   computed: {
     ...mapState({
       appData: "appData",
-      current: "current",
+      current: "current"
     }),
     TitleProject() {
-      return this.appData[this.$store.state.current].title;
+      return this.appData[this.$store.state.current].title
     },
     DateProject() {
-      return this.appData[this.$store.state.current].date;
+      return this.appData[this.$store.state.current].date
     },
     DescProject() {
-      return this.appData[this.$store.state.current].desc;
+      return this.appData[this.$store.state.current].desc
     },
     TechnoProject() {
-      return this.appData[this.$store.state.current].techno;
+      return this.appData[this.$store.state.current].techno
     },
     backgroundColorStyle() {
       return {
         backgroundColor: this.appData[this.$store.state.current].color
-      };
+      }
+    },
+    colorStyle() {
+      if(this.isClicked == true) {
+        return {
+          color: this.appData[this.$store.state.current].color
+        }
+      }
     },
     imageProject() {
-      return this.appData[this.$store.state.current].img;
+      return this.appData[this.$store.state.current].img
     },
     sphereVisible() {
       if (this.appData[this.$store.state.current] == 0) {
-        return this.isVisible = true;
+        return (this.isVisible = true)
       }
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "@/config.scss";
@@ -132,7 +146,7 @@ export default {
       left: 8vw;
       align-items: flex-start;
       // ---- TITLE + LINE  ----
-      .titleContainer { 
+      .titleContainer {
         &.-title {
           color: $black;
           font-family: "Inria Sans Bold";
@@ -142,8 +156,9 @@ export default {
           line-height: 96px;
           margin-left: -6px;
           text-align: left;
+          transform: scale(1);
           transition-duration: 0.3s;
-          transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
+          transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
           transition-duration: 0.15s;
         }
         &.-line {
@@ -151,7 +166,7 @@ export default {
           width: 38vw;
           margin-top: -5vh;
           margin-bottom: 3vh;
-          transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
+          transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
           transition-duration: 0.3s;
           transition-delay: 0.01s;
           &-arrow {
@@ -166,13 +181,13 @@ export default {
           .titleContainer {
             &.-title {
               transform: scale(1.03) translateX(2vw);
-              transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
+              transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
               transition-duration: 0.3s;
               transition-duration: 0.15s;
             }
             &.-line {
               transform: translateX(17vw);
-              transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
+              transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
               transition-duration: 0.3s;
               transition-delay: 0.01s;
               &-arrow {
@@ -181,18 +196,18 @@ export default {
               }
             }
           }
-        } 
+        }
       }
       // ---- PROJECT DESCRIPTION ----
       .descContainer {
-        transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
+        transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
         transition-duration: 0.35s;
         transition-delay: 0.1s;
       }
       // ---- EVENT HOVER ----
       .descContainer.hoverDesc {
         transform: translateX(2vw);
-        transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
+        transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
         transition-duration: 0.35s;
         transition-delay: 0.1s;
       }
@@ -247,7 +262,7 @@ export default {
           left: 4vw;
           bottom: 7vh;
           &:before {
-            content: '0'
+            content: "0";
           }
         }
       }
@@ -289,17 +304,55 @@ export default {
     }
     // ---- PREVIOUS PROJECT ----
     .previousProject {
-      transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
+      transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
       transition-duration: 0.46s;
       transition-delay: 0.2s;
     }
     // ---- EVENT HOVER ----
     .previousProject.hoverPreviousProject {
       transform: scale(1.03) translateX(2vw);
-      transition-timing-function: cubic-bezier(.25, 0.1, 0.25, 1);
+      transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
       transition-duration: 0.46s;
       transition-delay: 0.2s;
     }
+  }
+  .titleContainer {
+    &.-title.isHidden {
+      transform: scale(6) translateX(16.05vw) translateY(2vh) !important;
+      width: 100% !important;
+      transition-timing-function: cubic-bezier(0.95, 0, 0.1, 1) !important;
+      transition-delay: 0.05s !important;
+      transition-duration: 0.95s !important;
+    }
+    &.-line.isHidden {
+      zoom: 1;
+      opacity: 0;
+      transition: opcaity 0.2s;
+    }
+    &.-line-arrow.isHidden {
+      zoom: 1;
+      opacity: 0;
+      transition: opcaity 0.2s;
+    }
+  }
+  .date.isHidden,
+  .desc.isHidden,
+  .techno.isHidden {
+    zoom: 1;
+    opacity: 0;
+    transform: translateX(10vw);
+    transition: all 0.5s;
+  }
+  .pagination.isHidden {
+    visibility: hidden;
+  }
+  .pagination.isHidden {
+    visibility: hidden;
+  }
+  .backgroundColor.isHidden {
+    width: 0%;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: all 1s;
   }
 }
 </style>
