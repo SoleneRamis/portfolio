@@ -3,7 +3,7 @@
     <transition name="fade" mode="out-in" appear>
       <div>
         <nav-bar></nav-bar>
-        <slider></slider>
+        <slider v-on:Clicked="Clicked($event)"></slider>
       </div>
     </transition>
   </div>
@@ -25,6 +25,7 @@ export default {
     return {
       valueTranslate: 0,
       isDraggable: false,
+      isClicked: false,
     }
   },
   mounted() {    
@@ -37,17 +38,19 @@ export default {
       next: "next",
       previous: "previous"
     }),
+    Clicked (newValue) {
+      this.isClicked = newValue;
+      console.log(newValue)
+    },
     handlemousewheel(event) {
       let deltaScroll = event.wheelDelta || -event.detail;
-      // var delta = event.wheelDelta ? event.wheelDelta/40 : event.detail ? -event.detail/3 : 0;
-    
       if (!this.isDraggable) {
         this.isDraggable = true;
-        if (deltaScroll < 0) {
+        if (deltaScroll < 0 && this.isClicked == false) {
           setTimeout( () => { this.isDraggable = false; }, 800);
           this.nextSlide();
         }
-        if (deltaScroll > 0) {
+        if (deltaScroll > 0 && this.isClicked == false) {
           setTimeout( () => { this.isDraggable = false; }, 800);
           this.previousSlide();
         }
@@ -77,6 +80,6 @@ export default {
     height: 100%;
     position: relative;
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow-y: hidden;
   }
 </style>

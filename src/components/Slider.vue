@@ -5,16 +5,16 @@
       <!-- PROJECT TITLE & LINE -->
       <div class="projectContainer">
         <div class="titleContainer" ref="titleContainer">
-          <h1 class="titleContainer -title" :class="{'isHidden': isClicked}" :style="colorStyle">{{TitleProject}}</h1>
-          <div class="titleContainer -line" :class="{'isHidden': isClicked}">
-            <span class="titleContainer -line-arrow" :class="{'isHidden': isClicked}">></span>
+          <h1 class="titleContainer -title" :class="{'isClicked': isClicked}" :style="colorStyle">{{TitleProject}}</h1>
+          <div class="titleContainer -line" :class="{'isClicked': isClicked}">
+            <span class="titleContainer -line-arrow" :class="{'isClicked': isClicked}">></span>
           </div>
         </div>
         <!-- PROJECT DESCRIPTION -->
-        <div class="descContainer" :class="{'hoverDesc': isHover, 'isHidden': isClicked}">
-          <p class="date" :class="{'isHidden': isClicked}">{{DateProject}}</p>
-          <p class="desc" :class="{'isHidden': isClicked}">{{DescProject}}</p>
-          <div class="techno" :class="{'isHidden': isClicked}">
+        <div class="descContainer" :class="{'hoverDesc': isHover, 'isClicked': isClicked}">
+          <p class="date" :class="{'isClicked': isClicked}">{{DateProject}}</p>
+          <p class="desc" :class="{'isClicked': isClicked}">{{DescProject}}</p>
+          <div class="techno" :class="{'isClicked': isClicked}">
             <p v-for="(TechnoProject, index) in this.appData[this.$store.state.current].techno" :key="index">
               <span class="glif">✎</span> {{TechnoProject}}
             </p>
@@ -22,7 +22,7 @@
         </div>
       </div>
       <!-- PAGINATION -->
-      <div class="pagination" :class="{'isHidden': isClicked}">
+      <div class="pagination" :class="{'isClicked': isClicked}">
         <span class="number">{{this.appData[this.$store.state.current].count}}</span>
         <div class="underline"/>
         <span class="number -last">{{this.appData.length}}</span>
@@ -30,13 +30,13 @@
     </div>
     <!-- RIGHT PART -->
     <div class="containerRight" ref="containerRight">
-      <div class="backgroundColor" :class="{'isHidden': isClicked}" :style="backgroundColorStyle"></div>
+      <div class="backgroundColor" :class="{'isClicked': isClicked}" :style="backgroundColorStyle"></div>
       <!-- PREVIOUS PROJECT -->
       <div class="previousProject" :class="{'hoverPreviousProject': isHover}">
         <!-- SPHERE FOR PROJECT AR XP -->
-        <sphere v-if="this.appData[this.$store.state.current].title == 'AR Experience'"></sphere>
+        <sphere v-if="this.appData[this.$store.state.current].title == 'AR Experience'" :class="{'isClicked': isClicked}"></sphere>
         <!-- PROJECT PICTURE -->
-        <img v-if="this.appData[this.$store.state.current].title != 'AR Experience'" class="image" :src="imageProject"/>
+        <img v-if="this.appData[this.$store.state.current].title != 'AR Experience'" class="image" :class="{'isClicked': isClicked}" :src="imageProject"/>
       </div>
     </div>
   </div>
@@ -62,18 +62,24 @@ export default {
   mounted() {
     // ---- EVENT FOR HOVER ANIMATION ----
     this.$refs.titleContainer.addEventListener("mouseenter", () => {
-      this.isHover = true
+      if (this.isClicked == false) {
+        return this.isHover = true
+      }
     })
     this.$refs.titleContainer.addEventListener("mouseleave", () => {
       this.isHover = false
     })
     // ---- EVENT FOR CLICK ANIMATION ----
     this.$refs.titleContainer.addEventListener("click", () => {
+      this.isHover = false
       this.isClicked = true
+      this.Clicked()
     })
-    // this.$refs.titleContainer.addEventListener('mouseleave', () => {
-    //   this.isHover = false
-    // });
+  },
+  methods: {
+    Clicked() {
+      this.$emit('Clicked', this.isClicked);
+    }
   },
   computed: {
     ...mapState({
@@ -123,8 +129,6 @@ export default {
   height: 100%;
   display: flex;
   justify-content: flex-start;
-  overflow: hidden;
-  overflow: hidden;
   // ---- LEFT PART ----
   .containerLeft {
     position: absolute;
@@ -149,7 +153,7 @@ export default {
       .titleContainer {
         &.-title {
           color: $black;
-          font-family: "Inria Sans Bold";
+          font-family: "Inria Sans";
           font-size: 70px;
           font-weight: bold;
           letter-spacing: -2.5px;
@@ -180,6 +184,7 @@ export default {
         &:hover {
           .titleContainer {
             &.-title {
+              z-index: -4 !important;
               transform: scale(1.03) translateX(2vw);
               transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
               transition-duration: 0.3s;
@@ -190,9 +195,11 @@ export default {
               transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
               transition-duration: 0.3s;
               transition-delay: 0.01s;
+              // z-index: 6 !important;
               &-arrow {
                 opacity: 1;
                 transition: opacity 0.3s;
+                // z-index: 6 !important;
               }
             }
           }
@@ -316,43 +323,67 @@ export default {
       transition-delay: 0.2s;
     }
   }
+
   .titleContainer {
-    &.-title.isHidden {
-      transform: scale(6) translateX(16.05vw) translateY(2vh) !important;
-      width: 100% !important;
+    &.-title.isClicked {
+      z-index: -1 !important;
+      width: 110% !important;
+      transform: scale(6) translateX(17vw) translateY(3vh) !important;
       transition-timing-function: cubic-bezier(0.95, 0, 0.1, 1) !important;
       transition-delay: 0.05s !important;
       transition-duration: 0.95s !important;
     }
-    &.-line.isHidden {
+    &.-line.isClicked {
       zoom: 1;
       opacity: 0;
       transition: opcaity 0.2s;
     }
-    &.-line-arrow.isHidden {
+    &.-line-arrow.isClicked {
       zoom: 1;
       opacity: 0;
       transition: opcaity 0.2s;
     }
   }
-  .date.isHidden,
-  .desc.isHidden,
-  .techno.isHidden {
+  .date.isClicked,
+  .desc.isClicked,
+  .techno.isClicked {
     zoom: 1;
     opacity: 0;
     transform: translateX(10vw);
     transition: all 0.5s;
   }
-  .pagination.isHidden {
+  .pagination.isClicked {
     visibility: hidden;
   }
-  .pagination.isHidden {
+  .pagination.isClicked {
     visibility: hidden;
   }
-  .backgroundColor.isHidden {
+  .backgroundColor.isClicked {
     width: 0%;
     transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
     transition: all 1s;
   }
+  .sphere.isClicked {
+    z-index: 1 !important;
+    height: 100% !important;
+    top: 0 !important;
+    transform: translateX(-32vw) !important;
+    transition-timing-function: cubic-bezier(0.95, 0, 0.1, 1) !important;
+    transition-delay: 0.2s !important;
+    transition-duration: 1.10s !important;
+    canvas.isClicked {
+      height: 100% !important;
+    } 
+  } 
+
+  .image.isClicked {
+    z-index: 1 !important;
+    height: 100% !important;
+    top: 0 !important;
+    transform: translateX(-32vw) !important;
+    transition-timing-function: cubic-bezier(0.95, 0, 0.1, 1) !important;
+    transition-delay: 0.2s !important;
+    transition-duration: 1.10s !important;
+  } 
 }
 </style>
