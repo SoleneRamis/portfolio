@@ -16,7 +16,7 @@ import TweenLite from "gsap/TweenLite";
 import { mapState, mapMutations, mapGetters } from "vuex";
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
     NavBar,
     Slider,

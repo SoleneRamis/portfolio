@@ -1,23 +1,19 @@
 <template>
-  <div class="slider">
+  <div class="pensee">
     <!-- LEFT PART -->
     <div class="containerLeft">
       <!-- PROJECT TITLE & LINE -->
       <div class="projectContainer">
         <div class="titleContainer" ref="titleContainer">
-          <router-link 
-            :to="{ name:'/project', params: { name:this.appData[this.$store.state.current].url}}"
-            class="titleContainer -title"
-            :class="{'isClicked': isClicked}" 
-            style="colorStyle">
+          <h1 class="titleContainer -title" :class="{'isClicked': isClicked}" style="colorStyle">
               {{TitleProject}}
-          </router-link>
+          </h1>
           <div class="titleContainer -line" :class="{'isClicked': isClicked}">
             <span class="titleContainer -line-arrow" :class="{'isClicked': isClicked}">></span>
           </div>
         </div>
         <!-- PROJECT DESCRIPTION -->
-        <div class="descContainer" :class="{'hoverDesc': isHover, 'isClicked': isClicked}">
+        <div class="descContainer" :class="{'isClicked': isClicked}">
           <p class="date" :class="{'isClicked': isClicked}">{{DateProject}}</p>
           <p class="desc" :class="{'isClicked': isClicked}">{{DescProject}}</p>
           <div class="techno" :class="{'isClicked': isClicked}">
@@ -38,7 +34,7 @@
     <div class="containerRight" ref="containerRight">
       <div class="backgroundColor" :class="{'isClicked': isClicked}" :style="backgroundColorStyle"></div>
       <!-- PREVIOUS PROJECT -->
-      <div class="previousProject" :class="{'hoverPreviousProject': isHover}">
+      <div class="previousProject">
         <!-- SPHERE FOR PROJECT AR XP -->
         <sphere v-if="this.appData[this.$store.state.current].title == 'AR Experience'" :class="{'isClicked': isClicked}"></sphere>
         <!-- PROJECT PICTURE -->
@@ -54,12 +50,11 @@ import Sphere from "./Sphere"
 import * as THREE from "three"
 
 export default {
-  name: "slider",
+  name: "pensee",
   data() {
     return {
-      isHover: false,
       isVisible: false,
-      isClicked: false,
+      isClicked: false
     }
   },
   components: {
@@ -67,14 +62,14 @@ export default {
   },
   mounted() {
     // ---- EVENT FOR HOVER ANIMATION ----
-    this.$refs.titleContainer.addEventListener("mouseenter", () => {
-      if (this.isClicked == false) {
-        return this.isHover = true
-      }
-    })
-    this.$refs.titleContainer.addEventListener("mouseleave", () => {
-      this.isHover = false
-    })
+    // this.$refs.titleContainer.addEventListener("mouseenter", () => {
+    //   if (this.isClicked == false) {
+    //     return this.isHover = true
+    //   }
+    // })
+    // this.$refs.titleContainer.addEventListener("mouseleave", () => {
+    //   this.isHover = false
+    // })
     // ---- EVENT FOR CLICK ANIMATION ----
     // this.$refs.titleContainer.addEventListener("click", (e) => {
     //   this.isHover = false
@@ -83,9 +78,15 @@ export default {
     // })
   },
   methods: {
-    Clicked() {
-      this.$emit('Clicked', this.isClicked);
-    }
+    Clicked (newValue) {
+      this.isClicked = newValue;
+      console.log(newValue)
+    },
+    // animate(event) {
+    //     if (this.isClicked == false) {
+
+    //     }
+    // }
   },
   computed: {
     ...mapState({
@@ -130,7 +131,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/config.scss";
 
-.slider {
+.pensee {
   width: 100%;
   height: 100%;
   display: flex;
@@ -190,40 +191,9 @@ export default {
             opacity: 0;
           }
         }
-        // ---- HOVER ----
-        &:hover {
-          .titleContainer {
-            &.-title {
-              z-index: -4 !important;
-              transform: scale(1.03) translateX(2vw);
-              transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-              transition-duration: 0.3s;
-              transition-duration: 0.15s;
-            }
-            &.-line {
-              transform: translateX(17vw);
-              transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-              transition-duration: 0.3s;
-              transition-delay: 0.01s;
-              // z-index: 6 !important;
-              &-arrow {
-                opacity: 1;
-                transition: opacity 0.3s;
-                // z-index: 6 !important;
-              }
-            }
-          }
-        }
       }
       // ---- PROJECT DESCRIPTION ----
       .descContainer {
-        transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-        transition-duration: 0.35s;
-        transition-delay: 0.1s;
-      }
-      // ---- EVENT HOVER ----
-      .descContainer.hoverDesc {
-        transform: translateX(2vw);
         transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
         transition-duration: 0.35s;
         transition-delay: 0.1s;
@@ -321,13 +291,6 @@ export default {
     }
     // ---- PREVIOUS PROJECT ----
     .previousProject {
-      transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-      transition-duration: 0.46s;
-      transition-delay: 0.2s;
-    }
-    // ---- EVENT HOVER ----
-    .previousProject.hoverPreviousProject {
-      transform: scale(1.03) translateX(2vw);
       transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
       transition-duration: 0.46s;
       transition-delay: 0.2s;

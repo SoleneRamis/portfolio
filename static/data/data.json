@@ -3,6 +3,7 @@
         "count": "01",
         "color": "#6c3f93",
         "title": "AR Experience",
+        "url": "ARExperience",
         "date": "Projet personnel - 2018.2019",
         "desc": "Expérience sur réalité augmentée pour tester le framework web A-frame basé sur Three.js.",
         "techno": {
@@ -16,6 +17,7 @@
         "color": "#BFEAE8",
         "img": "../static/imgs/louvre/intro.png",
         "title": "Louvre Experience",
+        "url": "LouvreExperience",
         "date": "Projet Gobelins - 2018.2019",
         "desc": "Site web interactif autour du casque de parade de Charles VI, oeuvre appartenant à l’exposition de la Petite Galerie du Louvre: « L’archéologie en bulles ».",
         "techno": {
@@ -27,6 +29,7 @@
         "color": "#BB4EA9",
         "img": "../static/imgs/3DSound/intro.png",
         "title": "Worakls – Bleu",
+        "url": "Worakls–Bleu",
         "date": "Projet Gobelins 2018 / 2019",
         "desc": "Réaliser une expérience interactive réagissant à la musique avec Three.js.",
         "techno": {
@@ -40,6 +43,7 @@
         "color": "#AEC1B8",
         "img": "../static/imgs/soudlines/intro.gif",
         "title": "SoundLines",
+        "url": "SoundLines",
         "date": "Projet Gobelins - 2018.2019",
         "desc": "Réaliser une expérience interactive réagissant à la musique avec canvas 2D.",
         "techno": {
@@ -53,6 +57,7 @@
         "color": "#F77F2E",
         "img": "../static/imgs/dataviz/intro.png",
         "title": "Dataviz - BDDIVRE",
+        "url": "Dataviz-BDDIVRE",
         "date": "Projet Gobelins - 2018.2019",
         "desc": "À partir de données sur la promotion, notamment sur sa consommation d’alcool, ce site permet de visualiser de façon divertissante des informations chiffrées.",
         "techno": {
@@ -65,6 +70,7 @@
         "color": "#F7BABF",
         "img": "../static/imgs/chatroom/intro.png",
         "title": "Emotional Chatroom",
+        "url": "EmotionalChatroom",
         "date": "Projet Gobelins - 2018.2019",
         "desc": "Création d'un chat en ligne au sein de Gobelins où chaque membre de la classe peut discuter avec un client différent",
         "techno": {
@@ -78,6 +84,7 @@
         "color": "#667DF7",
         "img": "../static/imgs/laboscope/intro.png",
         "title": "Laboscope",
+        "url": "Laboscope",
         "date": "Projet stage EDF au laboratoire I2R - 2016.2017",
         "desc": "Création d'un outil permettant la visualisation et le stockage de données pour répondre aux besoins de mise en production d’un outil d’archivage, de planification et de gestion de projets.",
         "techno": {
