@@ -37,7 +37,7 @@ export default {
 
         let geometry = new THREE.SphereGeometry(3, 50, 50);
         let material = new THREE.MeshBasicMaterial({
-          map: new THREE.TextureLoader().load('https://res.cloudinary.com/dn32la6ny/image/upload/v1553163458/pawel-czerwinski-1392547-unsplash.jpg')
+          map: new THREE.TextureLoader().load('../../static/imgs/texture.jpg')
         });
 
         this.sphere = new THREE.Mesh(geometry, material);
@@ -67,9 +67,6 @@ export default {
 <style lang="scss" scoped>
 #canvas {
     position: absolute;
-     // visibility: hidden;
-  // #canvas >  .sphereVisible {
-  //     visibility: visible;
-  //   }
+    overflow: hidden;
 }
 </style>
