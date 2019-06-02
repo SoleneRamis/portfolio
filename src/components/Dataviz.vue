@@ -48,68 +48,68 @@ export default {
   data() {
     return {}
   },
-  mounted() {
-    // ---- EVENT FOR HOVER ANIMATION ----
-    this.$refs.titleContainer.addEventListener('mouseenter', () => {
-      const timeline = new TimelineMax()
-      timeline
-        .to('.-title', 0.3, {
-          x: '2vw',
-          sacle: 1.03,
-          ease: Expo.easeInOut
-        },"start")
-        .to('.-line', 0.3, {
-          x: '17vw',
-          delay: 0.01,
-          ease: Expo.easeInOut
-        },"start")
-        .to('.-line-arrow', 0.3, {
-          opacity: 1,
-          ease: Expo.easeInOut
-        },"start")
-        .to('.descContainer', 0.35, {
-          x: '2vw',
-          delay: 0.01,
-          ease: Expo.easeInOut
-        },"start")
-        .to('.previousProject', 0, {
-          x: '3vw',
-          sacle: 1.03,
-          overflow: 'initial',
-          ease: Expo.easeInOut
-        },"start")
-    })
+  // mounted() {
+  //   // ---- EVENT FOR HOVER ANIMATION ----
+  //   this.$refs.titleContainer.addEventListener('mouseenter', () => {
+  //     const timeline = new TimelineMax()
+  //     timeline
+  //       .to('.-title', 0.3, {
+  //         x: '2vw',
+  //         sacle: 1.03,
+  //         ease: Expo.easeInOut
+  //       },"start")
+  //       .to('.-line', 0.3, {
+  //         x: '17vw',
+  //         delay: 0.01,
+  //         ease: Expo.easeInOut
+  //       },"start")
+  //       .to('.-line-arrow', 0.3, {
+  //         opacity: 1,
+  //         ease: Expo.easeInOut
+  //       },"start")
+  //       .to('.descContainer', 0.35, {
+  //         x: '2vw',
+  //         delay: 0.01,
+  //         ease: Expo.easeInOut
+  //       },"start")
+  //       .to('.previousProject', 0, {
+  //         x: '3vw',
+  //         sacle: 1.03,
+  //         overflow: 'initial',
+  //         ease: Expo.easeInOut
+  //       },"start")
+  //   })
 
-    this.$refs.titleContainer.addEventListener('mouseleave', () => {
-      const timeline = new TimelineMax()
-      timeline
-        .to('.-title', 0.3, {
-          x: 0,
-          sacle: 1,
-          ease: Expo.easeInOut
-        },"start")
-        .to('.-line', 0.3, {
-          x: 0,
-          delay: 0.01,
-          ease: Expo.easeInOut
-        },"start")
-        .to('.-line-arrow', 0.3, {
-          opacity: 0,
-          ease: Expo.easeInOut
-        },"start")
-        .to('.descContainer', 0.35, {
-          x: 0,
-          delay: 0.01,
-          ease: Expo.easeInOut
-        },"start")
-        .to('.previousProject', 0, {
-          x: 0,
-          sacle: 1,
-          overflow: 'initial',
-          ease: Expo.easeInOut
-        },"start")
-    })
-  }
+  //   this.$refs.titleContainer.addEventListener('mouseleave', () => {
+  //     const timeline = new TimelineMax()
+  //     timeline
+  //       .to('.-title', 0.3, {
+  //         x: 0,
+  //         sacle: 1,
+  //         ease: Expo.easeInOut
+  //       },"start")
+  //       .to('.-line', 0.3, {
+  //         x: 0,
+  //         delay: 0.01,
+  //         ease: Expo.easeInOut
+  //       },"start")
+  //       .to('.-line-arrow', 0.3, {
+  //         opacity: 0,
+  //         ease: Expo.easeInOut
+  //       },"start")
+  //       .to('.descContainer', 0.35, {
+  //         x: 0,
+  //         delay: 0.01,
+  //         ease: Expo.easeInOut
+  //       },"start")
+  //       .to('.previousProject', 0, {
+  //         x: 0,
+  //         sacle: 1,
+  //         overflow: 'initial',
+  //         ease: Expo.easeInOut
+  //       },"start")
+  //   })
+  // }
 }
 </script>
 <style lang="scss" scoped>

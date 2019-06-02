@@ -46,6 +46,7 @@ export default {
       isClicked: false,
       isSlided: false,
       isWheeling: true,
+      isHover: false,
       directionSlide: null,
       currentIndex: 0,
       nextIndex: 1,
@@ -58,6 +59,11 @@ export default {
     window.addEventListener("DOMMouseScroll", this.handlewheel)
 
     this.previousIndex = document.querySelectorAll(".slide").length - 1
+
+        // ---- EVENT FOR HOVER ANIMATION ----
+    const containerTitle = document.querySelector('.titleContainer')
+    containerTitle.addEventListener('mouseover', this.animationHover)
+    containerTitle.addEventListener('mouseout', this.animationLeave)
   },
   // beforeDestroy() {
   //   TweenMax.killAll()
@@ -67,12 +73,12 @@ export default {
       if (!this.isWheeling)
         if (this.directionSlide == 1) {
           this.animationNext()
-           TweenMax.killChildTweensOf()
+          //  TweenMax.killChildTweensOf()
         } else {
           this.animationPrev()
-           TweenMax.killChildTweensOf()
+          //  TweenMax.killChildTweensOf()
         }
-    }
+    },
   },
   methods: {
     ...mapMutations({
@@ -84,6 +90,7 @@ export default {
     },
     handlewheel(e) {
       this.isWheeling = false
+      this.isHover = false
       if (e.deltaY > 0) {
         this.directionSlide = 1
       } else {
@@ -344,6 +351,92 @@ export default {
             delay:  0.7
           },"start")
       }
+    },
+    animationHover () {
+      const slides = document.getElementsByClassName("slide")
+      const currentSlide = slides[this.currentIndex]
+      const currentTitle = currentSlide.querySelector(".-title")
+      // const currentTitle = currentTitleContainer.querySelector(".-title")
+      const currentLine = currentSlide.querySelector(".-line")
+      const currentArrow = currentSlide.querySelector(".-line-arrow")
+      const currentDesc = currentSlide.querySelector(".descContainer")
+      const currentPreviousProject = currentSlide.querySelector(".previousProject")
+     
+     const timeline = new TimelineMax({
+        onComplete: () => {
+          this.changeIndexSlides(this.directionSlide)
+        }
+     })
+      timeline
+        .to(currentTitle, 0.3, {
+          x: '2vw',
+          sacle: 1.03,
+          ease: Expo.easeInOut
+        },"start")
+        .to(currentLine, 0.3, {
+          x: '17vw',
+          delay: 0.01,
+          ease: Expo.easeInOut
+        },"start")
+        .to(currentArrow, 0.3, {
+          opacity: 1,
+          ease: Expo.easeInOut
+        },"start")
+        .to(currentDesc, 0.35, {
+          x: '2vw',
+          delay: 0.01,
+          ease: Expo.easeInOut
+        },"start")
+        .to(currentPreviousProject, 0, {
+          x: '-1vw',
+          scale: 1,
+          overflow: 'initial',
+          ease: Expo.easeInOut
+        },"start")
+    },
+
+    animationLeave () {
+      console.log('ok')
+      const slides = document.getElementsByClassName("slide")
+      const currentSlide = slides[this.currentIndex]
+      const currentTitle = currentSlide.querySelector(".-title")
+      // const currentTitle = currentTitleContainer.querySelector(".-title")
+      const currentLine = currentSlide.querySelector(".-line")
+      const currentArrow = currentSlide.querySelector(".-line-arrow")
+      const currentDesc = currentSlide.querySelector(".descContainer")
+      const currentPreviousProject = currentSlide.querySelector(".previousProject")
+     
+     const timeline = new TimelineMax({
+        onComplete: () => {
+          this.changeIndexSlides(this.directionSlide)
+        }
+      })
+      timeline
+        .to(currentTitle, 0.3, {
+          x: 0,
+          sacle: 1,
+          ease: Expo.easeInOut
+        },"start")
+        .to(currentLine, 0.3, {
+          x: 0,
+          delay: 0.01,
+          ease: Expo.easeInOut
+        },"start")
+        .to(currentArrow, 0.3, {
+          opacity: 0,
+          ease: Expo.easeInOut
+        },"start")
+        .to(currentDesc, 0.35, {
+          x: 0,
+          delay: 0.01,
+          ease: Expo.easeInOut
+        },"start")
+        .to(currentPreviousProject, 0, {
+          x: "1vw",
+          scale: 1.03,
+          overflow: 'initial',
+          ease: Expo.easeInOut
+        },"start")
     }
   }
 }
