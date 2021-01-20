@@ -11,7 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "gsap": "^2.1.2",
+    "gsap": "^3.6.0",
     "lodash.throttle": "^4.1.1",
     "mobile-detect": "^1.4.3",
     "stylus": "^0.54.5",
