@@ -17,7 +17,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "three": "^0.102.0",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.1.0"
